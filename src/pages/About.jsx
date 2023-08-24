@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
+import about_img from '../assets/image 54.png'
 const About = () => {
   return (
     <>
     <main className="mb-auto overflow-auto">
 
-      <img id="sub-header" src="src/assets/image 54.png" alt="man sitting on van roof looking to the sky" className="w-full"/>
+      <img id="sub-header" src={about_img} alt="man sitting on van roof looking to the sky" className="w-full"/>
     <div id="info" className="w-full bg-white   py-10 px-8 flex flex-col text-justify gap-y-10">
 
           <h1 className="font-extrabold text-3xl text-gray-700">Don’t squeeze in a sedan when you could relax in a van.</h1>
