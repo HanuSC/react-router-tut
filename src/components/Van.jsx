@@ -8,7 +8,7 @@ const Van = ({van}) => {
     <main className="overflow-auto h-full  bg-white p-5 flex gap-5 flex-col md:flex-row">
     <img src={van.img} alt={van.model} className="rounded-md"/>
 
-    <div className="flex flex-col px-2 gap-4 justify-around">
+    <section className="flex flex-col px-2 gap-4 justify-around">
       <Link className="text-gray-600 flex gap-1 hover:underline" to='/vans'>&larr; return to all vans</Link>
       <div className="flex flex-col gap-5">
         <h1 className="font-semibold text-3xl md:text-6xl">{van.model}</h1>
@@ -24,7 +24,7 @@ const Van = ({van}) => {
     <Link to='/vans' className='bg-orange-400 rounded p-5 font-bold w-full text-center text-xl transition duration-500 hover:scale-105 text-white md:w:fit self-end'>
         Rent this van
       </Link>
-    </div>
+    </section>
     
     </main>
 

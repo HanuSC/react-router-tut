@@ -13,7 +13,7 @@ import Reviews from './pages/Host/Reviews'
 import HostVans from './pages/Host/HostVans'
 import HostLayout from './pages/Host/HostLayout'
 import HostVanDetail from './pages/Host/HostVanDetail'
-import { Details, Photos, Pricing } from './pages/Host/HostVan'
+import { Details, Photos, Pricing } from './components/HostVan'
 
 const App = () => {
   return (

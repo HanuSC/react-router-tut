@@ -5,7 +5,7 @@ const Layout = () => {
   
   return (
 <>
-    <div className='h-screen bg-[#FFF7ED] flex justify-center'>
+    <main className='h-screen bg-[#FFF7ED] flex justify-center'>
         <div className="w-full min-w-md flex flex-col justify-between">
 
             <Header />
@@ -14,7 +14,7 @@ const Layout = () => {
 
             <Footer />
         </div>
-    </div>
+    </main>
 </>
   )
 }
