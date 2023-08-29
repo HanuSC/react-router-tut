@@ -1,5 +1,5 @@
-import VanList from "../components/VanList"
-import Filters from "../components/Filters"
+import VanList from "../../components/VanList"
+import Filters from "../../components/Filters"
 import { useEffect, useState } from "react"
 
 const Vans = () => {
@@ -24,7 +24,7 @@ const Vans = () => {
 
 useEffect(() => {
 
-  if (activeFilters === []) {
+  if (activeFilters.length === 0) {
     setFilteredVans(vans)
     
   } else {
@@ -34,18 +34,16 @@ useEffect(() => {
 }, [activeFilters])
   return (
     <>
-        <main className="mb-auto overflow-auto px-6  flex flex-col">
+        <main className="mb-auto overflow-auto px-6 h-full flex flex-col">
 
-            <h1 className="text-3xl font-bold text-black m-10">
+            <h1 className="text-3xl font-bold text-black my-5">
                 Explore our van options
             </h1>
-
-
   
             <Filters activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
-            <div className="">
+      
             <VanList vans={filteredVans} />
-            </div>
+
             
 
         </main>

@@ -13,13 +13,6 @@
     padding: 0.2rem 0.5rem;
     border-radius: 5px;
     cursor: pointer;
-    border: solid 1px #FFEAD0;
-
-}
-
-.filter:hover {
-    background-color: #FFF7ED;
-    border: solid 1px #FFEAD0;
-    color: black
+    background-color: #FFEAD0;
 }
 
