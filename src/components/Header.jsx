@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/logog.png'
 import Profile from './Icons'
+import AuthRequired from '../utils/authRequired'
 const Header = () => {
   return (
     <header className='py-5 px-10 h-20 bg-[#FFF7ED] flex justify-between items-center text-[#4D4D4D]'>
@@ -26,7 +27,10 @@ const Header = () => {
         </NavLink>
 
         <button className='border border-black px-2 py-0' 
-        onClick={() => localStorage.clear()}>
+        onClick={() =>{ 
+          localStorage.clear()
+          window.location.reload()
+          }}>
           X
         </button>
       </nav>
