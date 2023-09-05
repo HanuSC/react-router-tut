@@ -3,7 +3,8 @@ import { useOutletContext } from 'react-router-dom'
 
 import { IncomeSection, OwnedVansSection, ReviewSection } from '../../components/DashBoardItems'
 const Dashboard = () => {
-  const [hostVans] = useOutletContext()
+  const hostVans = useOutletContext()
+  
   return (
     <>
       <section className='bg-[#FFEAD0] p-6'>

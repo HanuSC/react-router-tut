@@ -1,24 +1,33 @@
 import { Link } from "react-router-dom"
 import filters from '../utils/filters'
 
-const VanList = ({vans}) => {
+const VanList = ({vans, search}) => {
   return (
     <>
-    <main className="grid grid-cols-2 gap-y-5 gap-x-4 py-4 md:grid-cols-3">
-        { vans.map(van => (
+    <main className="grid grid-cols-2  md:grid-cols-3 mb-5">
+        { vans.map(van => {
           
-          <section key={van.id} className="max-w-sm rounded shadow-lg bg-white hover:scale-105">
-            <Link to={`/vans/${van.id}`}> 
-          <img className="w-full object-cover h-2/3" src={van.img} alt={van.model} />
-               <div className="flex flex-col justify-around p-3 h-1/3 lg:justify-between">
-                  <p className="flex flex-col lg:flex-row lg:text-xl lg:justify-between lg:px-2"> 
-                       <span className="font-bold">{van.model}</span> <span>${van.price}/day</span>
+          const tipo = van.type.slice(0, 1).toUpperCase() + van.type.slice(1)
+          
+          
+          return (
+          
+          <section key={van.id} className="rounded shadow-lg bg-white hover:scale-105 m-5"> {/* TODO refactor this */}
+            <Link to={`${van.id}`} state={{ search }}> 
+          <img className="w-full object-cover h-2/3" src={van.imageUrl} alt={van.name} />
+               <div className="flex flex-col justify-between h-1/3 p-5">
+                  <p className="flex justify-between"> 
+                       <span className="font-bold">{van.name}</span> <span className="font-bold text-lg">${van.price}/day</span>
                    </p>
-                   <span className={`${filters[van.category]} py-1 my-3 lg:my-0  text-center rounded text-white font-bold`}>{van.category}</span>
+                   <span className={`${filters[tipo]} text-center rounded text-white font-bold py-3`}>{tipo}</span>
                </div>
                </Link>
            </section>    
-        ))}
+
+
+
+
+        )})}
     </main>
     
     </>

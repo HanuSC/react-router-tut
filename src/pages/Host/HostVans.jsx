@@ -4,7 +4,7 @@ import Loading from "../../components/Loading"
 import { VanItem } from "../../components/HostVan"
 const HostVans = () => {
 
-  const [hostVans] = useOutletContext()
+  const hostVans = useOutletContext()
 
   return (
     <>
@@ -12,7 +12,7 @@ const HostVans = () => {
             <div className="flex flex-col p-6">
               {
                   hostVans.map(van => {
-                    return <VanItem van={van}/>
+                    return <VanItem key={van.id} van={van}/>
                   })
               }
             </div>
