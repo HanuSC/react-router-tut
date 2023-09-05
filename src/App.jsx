@@ -33,7 +33,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='about' element={<About />} />
     <Route path='login' element={<Login />} loader={LoginLoader} action={LoginAction}/>
     <Route path='vans' element={<Outlet />}>
-      <Route index element={<Vans />} loader={async () => await VansLoader()} />
+      <Route index element={<Vans />} loader={VansLoader} />
       <Route path=':id' element={<VanDetail  />} loader={VanLoader} />
     </Route>
 

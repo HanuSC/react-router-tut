@@ -1,26 +1,24 @@
-import { useLoaderData, Link, useLocation} from "react-router-dom"
+import { useLoaderData, Link, useLocation, defer} from "react-router-dom"
 import{ getVans } from "../../utils/api"
 import filters from '../../utils/filters'
+import { Suspense } from "react"
 
-export async function loader ({params}){
-  const van = await getVans(params.id)
-  return van
+export function loader ({params}){
+  return defer({van: getVans(params.id)})
 }
 
 const VanDetail = () => {
-  const van = useLoaderData()
+  const {van} = useLoaderData()
   const { state } = useLocation()
   const search = state?.search || ''
   const place = search === '' || search.split('=').length > 2
                   ? 'all'
                   : search.split('=')[1]
-                
-
-  return (
-   <>
-   
-   { van ?
-    <main className="overflow-auto h-fit  bg-white p-7 flex flex-col md:flex-row">
+        
+                  
+  function renderVan (van) {
+    return (
+      <main className="overflow-auto h-fit  bg-white p-7 flex flex-col md:flex-row">
     <img src={van.imageUrl} alt={van.name} className="rounded-md"/>
 
     <section className="flex flex-col px-5 justify-around">
@@ -42,9 +40,16 @@ const VanDetail = () => {
     </section>
     
     </main>
+    )
+  }
 
-    : <h1 className="text-5xl text-center font-extrabold">Loading...</h1>
-}
+  return (
+   <>
+      <Suspense fallback={<Loading />}>
+        <Await resolve={van}>
+          {renderVan}
+        </Await>
+      </Suspense>
    </>
   )
 }
