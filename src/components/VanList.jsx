@@ -12,14 +12,14 @@ const VanList = ({vans, search}) => {
           
           return (
           
-          <section key={van.id} className="rounded shadow-lg bg-white hover:scale-105 m-5"> {/* TODO refactor this */}
+          <section key={van.id} className="rounded shadow-lg bg-white hover:scale-105 m-4">
             <Link to={`${van.id}`} state={{ search }}> 
-          <img className="w-full object-cover h-2/3" src={van.imageUrl} alt={van.name} />
-               <div className="flex flex-col justify-between h-1/3 p-5">
-                  <p className="flex justify-between"> 
-                       <span className="font-bold">{van.name}</span> <span className="font-bold text-lg">${van.price}/day</span>
+          <img className="w-full object-cover" src={van.imageUrl} alt={van.name} />
+               <div className="flex flex-col justify-between h-fit">
+                  <p className="flex flex-col justify-between my-3 mx-2"> 
+                       <span className="font-bold">{van.name}</span> <span className="font-bold">${van.price}/day</span>
                    </p>
-                   <span className={`${filters[tipo]} text-center rounded text-white font-bold py-3`}>{tipo}</span>
+                   <span className={`${filters[tipo]} text-center rounded text-white font-bold py-2 item-end`}>{tipo}</span>
                </div>
                </Link>
            </section>    

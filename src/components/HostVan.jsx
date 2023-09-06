@@ -69,7 +69,7 @@ const HostVanHeader = ({hostVan}) => {
     <>
         <header id="hostVanHeader" className="flex lg:w-1/2"> 
                 <img src={hostVan.imageUrl} alt={hostVan.name} className="w-1/3 rounded shadow-sm" />
-                <div id="host-van-card-info" className="flex flex-col justify-around px-3">
+                <div className="flex flex-col justify-between px-3">
                     <span className={`${filters[hostVan.type]} text-white px-2 py-1 rounded w-fit`}>{hostVan.type}</span>
                     <h1 className="text-xl font-bold">{hostVan.name}</h1>
                     <p><span className="font-bold">${hostVan.price}</span>/day</p>

@@ -3,12 +3,12 @@ import logo from '../assets/logog.png'
 import Profile from './Icons'
 const Header = () => {
   return (
-    <header className='py-5 px-10 h-20 bg-[#FFF7ED] flex justify-between items-center text-[#4D4D4D]'>
+    <header className='py-3 bg-[#FFF7ED] md:flex-row justify-between items-center text-[#4D4D4D] flex flex-col md:px-10 md:pb-2'>
       <NavLink to='.'>
-        <img src={logo} alt="logo" className='w-1/2 lg:w-40'/>
+        <h1 className='text-3xl font-black text-black pb-2'>#VANLIFE</h1>
       </NavLink>
       
-      <nav className='flex justify-end gap-10 w-1/2 '>
+      <nav className='flex justify-center gap-10 w-1/2 md:justify-end'>
         <NavLink to='/about' className={({isActive}) => isActive? 'underline text-black' : ''}>
           <span className=' font-bold  hover:underline text-xl'>About</span>
         </NavLink>

@@ -16,7 +16,7 @@ export async function loader ({params, request}){
             <>
             <div className="bg-white rounded lg:p-10 m-5 shadow-sm p-6 flex flex-col lg:flex-row">
             <HostVanHeader hostVan={hostVan} />
-        <div className="flex flex-col">
+            <div className="flex flex-col">
 
         <HostVanNav links={[
                 {text:'Details', to: '.', end: true},
@@ -40,7 +40,7 @@ const HostVanDetail = () => {
 
   return (
     <>
-    <Link to='..' className="text-[#2d2d2d] flex text-sm items-center px-3 lg:px-10"><p className="hover:underline">&larr; Back to all vans</p></Link>
+    <Link to='..' className="text-[#2d2d2d] flex text-sm items-center px-3 lg:px-10"><p className="hover:underline">&larr; Back to your vans</p></Link>
     
     <Suspense fallback={<Loading />}>
         <Await resolve={van}>
