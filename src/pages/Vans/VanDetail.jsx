@@ -19,23 +19,23 @@ const VanDetail = () => {
                   
   function renderVan (van) {
     return (
-      <main className="overflow-auto h-fit  bg-white p-7 flex flex-col md:flex-row">
-    <img src={van.imageUrl} alt={van.name} className="rounded-md"/>
+      <main className="overflow-auto h-full  bg-white p-7 flex flex-col md:flex-row">
+    <img src={van.imageUrl} alt={van.name} className="rounded-md w-full md:w-1/2 object-cover"/>
 
-    <section className="flex flex-col px-5 justify-around">
-      <Link className="text-gray-600 flex hover:underline" to={`..?${search}`}>&larr; return to {place} vans</Link>
-      <div className="flex flex-col">
-        <h1 className="font-semibold text-3xl md:text-6xl">{van.name}</h1>
+    <section className="flex flex-col md:pl-6 justify-between">
+      <Link className="text-gray-600 flex hover:underline mt-4" to={`..?${search}`}>&larr; return to {place} vans</Link>
+      <div className="flex flex-col py-4">
+        <h1 className="font-semibold text-3xl md:text-6xl pb-3">{van.name}</h1>
         <span
-          className={`${filters[van.type]} rounded-sm flex w-fit items-center py-1 text-lg font-semibold text-white px-2`}
+          className={`${filters[van.type]}  rounded-sm flex w-fit items-center py-1 text-lg font-semibold text-white px-2`}
         >{van.type}</span>
-        <i className="text-xl">${van.price} / <span className="font-semibold">day</span></i>
+        <i className="text-xl pt-3">${van.price} / <span className="font-semibold">day</span></i>
       </div>
       <p className="text-gray-700 col-span-3 text-justify">
       {van.description}
     </p>
 
-    <Link to='..' className='bg-orange-400 rounded p-5 font-bold w-full text-center text-xl transition duration-500 hover:scale-105 text-white md:w:fit self-end'>
+    <Link to='..' className='bg-orange-400 rounded p-5 mt-3 font-bold w-full text-center text-xl transition duration-500 hover:scale-105 text-white md:w:fit self-end'>
         Rent this van
       </Link>
     </section>
