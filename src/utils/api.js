@@ -1,18 +1,51 @@
-export async function getVans(id)  {
-    const res = id? await fetch(`/api/vans/${id}`) : await fetch('/api/vans')
-    if (!res.ok) {
-        throw {
-            message: "Failed to fetch vans", 
-            statusText: res.statusText,
-            status: res.status
-        }
-    }
-    const data = await res.json()
-    
-    return data.vans
+
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where } from 'firebase/firestore/lite'
+const firebaseConfig = {
+  apiKey: "AIzaSyAyKwxZghF1VaR36D1Mox5yXb8erEWU9KQ",
+  authDomain: "vanlife-hanus.firebaseapp.com",
+  projectId: "vanlife-hanus",
+  storageBucket: "vanlife-hanus.appspot.com",
+  messagingSenderId: "226161652098",
+  appId: "1:226161652098:web:a1dc148e9973b06e989f9b"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app)
+const vansRef = collection(db, 'vans')
+
+
+export async function getVans() {
+    const querySnapshot = await getDocs(vansRef)
+    const dataArr = querySnapshot.docs.map(doc => ({
+        ...doc.data(), 
+        id: doc.id
+    }))
+    console.log(dataArr)
+    return dataArr
 }
 
-export async function getHostVans(id) {
+export async function getVan(id) {
+    const vanRef = doc(db, 'vans', id) 
+    const van = await getDoc(vanRef)
+    return {
+        ...van.data(), 
+        id: van.id
+    }
+}
+
+export async function getHostVans() {
+    const q = query(vansRef, where('hostId', '==', '123'))
+    const querySnapshot = await getDocs(q)
+    const dataArr = querySnapshot.docs.map(doc => ({
+        ...doc.data(), 
+        id: doc.id
+    }))
+    return dataArr
+}
+
+/* export async function getHostVans(id) {
     const res = id ? await fetch(`/api/host/vans/${id}`) : await fetch('/api/host/vans')
     if (!res.ok) {
         throw {
@@ -23,7 +56,7 @@ export async function getHostVans(id) {
     }
     const data = await res.json()
     return data.vans
-}
+} */
 
 export async function loginUser(credentials) {
     const res = await fetch('/api/login', {

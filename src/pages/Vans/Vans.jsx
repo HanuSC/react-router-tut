@@ -18,6 +18,7 @@ const Vans = () => {
   const vansfilter = searchParams.getAll('type')
 
   function renderVans (vans) {
+    console.log(JSON.stringify(vans))
     const displayedVans = vansfilter.length !== 0 
               ? vans.filter(van => vansfilter.includes(van.type.toLowerCase()) 
               ) : vans

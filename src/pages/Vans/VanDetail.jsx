@@ -1,10 +1,11 @@
-import { useLoaderData, Link, useLocation, defer} from "react-router-dom"
-import{ getVans } from "../../utils/api"
+import { useLoaderData, Link, useLocation, defer, Await} from "react-router-dom"
+import{ getVan } from "../../utils/api"
 import filters from '../../utils/filters'
 import { Suspense } from "react"
+import Loading from "../../components/Loading"
 
 export function loader ({params}){
-  return defer({van: getVans(params.id)})
+  return defer({van: getVan(params.id)})
 }
 
 const VanDetail = () => {
