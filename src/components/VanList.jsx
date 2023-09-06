@@ -7,7 +7,7 @@ const VanList = ({vans, search}) => {
     <main className="grid grid-cols-2  md:grid-cols-3 mb-5">
         { vans.map(van => {
           
-          const tipo = van.type.slice(0, 1).toUpperCase() + van.type.slice(1)
+          const tipo = van.type
           
           
           return (
