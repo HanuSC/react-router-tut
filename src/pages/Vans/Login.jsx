@@ -52,9 +52,9 @@ const Login = () => {
         replace
         >
 
-        <input type="text" name="email" placeholder='Email address' className="text-xl px-3 py-4 text-gray-500 rounded-t-lg border" />
+        <input type="text" name="email" placeholder='Email address (admin@admin)' className="text-xl px-3 py-4 text-gray-500 rounded-t-lg border" value='admin@admin' />
 
-        <input type='password' name="password" placeholder='Password' className="text-xl px-3 py-4 border text-gray-500 rounded-b-lg" />
+        <input type='password' name="password" placeholder='Password (admin)' className="text-xl px-3 py-4 border text-gray-500 rounded-b-lg" value='admin' />
 
         <button
           disabled={state === 'submitting'}
