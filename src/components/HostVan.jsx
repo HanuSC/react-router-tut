@@ -45,7 +45,7 @@ const Pricing = () => {
 const VanItem = ({van, edit}) => {
     return (
     <>
-    <section key={van.id} className="bg-white p-2 m-1 flex my-3 hover:shadow-md transition-transform hover:scale-105 items-center">
+    <section key={van.id} className="bg-white p-2 m-1 flex md:flex-col my-3 hover:shadow-md transition-transform hover:scale-105 items-center">
         <Link  to={`/host/vans/${van.id}`}>
                 <div className="flex">
                     <img src={van.imageUrl} alt={van.name} className="max-w-sm w-1/4 rounded" />
@@ -67,14 +67,12 @@ const VanItem = ({van, edit}) => {
 const HostVanHeader = ({hostVan}) => {
     return (
     <>
-        <header id="hostVanHeader" className="flex lg:w-1/2"> 
-                <img src={hostVan.imageUrl} alt={hostVan.name} className="w-1/3 rounded shadow-sm" />
-                <div className="flex flex-col justify-between px-3">
-                    <span className={`${filters[hostVan.type]} text-white px-2 py-1 rounded w-fit`}>{hostVan.type}</span>
+        <header  className="flex w-full justify-between items-center"> 
+                    <span className={`${filters[hostVan.type]} text-white rounded h-fit px-2`}>{hostVan.type}</span>
                     <h1 className="text-xl font-bold">{hostVan.name}</h1>
-                    <p><span className="font-bold">${hostVan.price}</span>/day</p>
-                </div>
-            </header>    
+                    <p className="mt-2"><span className="font-bold ">${hostVan.price}</span>/day</p>
+
+        </header>    
     </>
 
     )
@@ -83,7 +81,7 @@ const HostVanHeader = ({hostVan}) => {
 const HostVanNav = ({links}) => {
     return (
         <>
-        <nav id="navVanHeader" className=" my-5 lg:my-0 flex justify-between  items-center py-1"> 
+        <nav id="navVanHeader" className="flex justify-between items-center my-5"> 
                 <div className="flex gap-6 w-3/4 ">
                     {links.map(link => {
                         return <NavLink key={link.text} to={link.to} end={link.end} className={({isActive}) => isActive ? 'underline font-bold' : '' }> <span className="hover:underline">{link.text}</span></NavLink>

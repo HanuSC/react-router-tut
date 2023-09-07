@@ -9,7 +9,7 @@ const HostVans = () => {
   return (
     <>
         { hostVans ? 
-            <div className="flex flex-col p-6">
+            <div className="flex flex-col md:flex-row p-6">
               {
                   hostVans.map(van => {
                     return <VanItem key={van.id} van={van}/>
