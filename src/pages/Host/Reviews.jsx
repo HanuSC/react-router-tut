@@ -1,7 +1,7 @@
 
 const Reviews = () => {
   return (
-    <div>Reviews</div>
+    <div className="text-xl grid place-content-center h-full font-bold" >In process...</div>
   )
 }
 

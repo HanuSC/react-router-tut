@@ -40,7 +40,7 @@ const ReviewSection = () => {
 const OwnedVansSection = ({vans}) => {
     return (
     <>
-        <section className='bg-[#FFEAD0] p-6'>
+        <section className='bg-[#FFEAD0] p-6 h-full'>
           <div id="income" className='flex flex-col gap-5'>
               <div className='flex justify-between text-black'>
                 <h1 className='text-xl font-bold'>Your listed vans</h1>

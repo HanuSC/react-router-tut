@@ -1,7 +1,7 @@
 
 const Income = () => {
   return (
-    <div className="bg-green-100 h-full" >Income</div>
+    <div className="text-xl grid place-content-center h-full font-bold" >In process...</div>
   )
 }
 

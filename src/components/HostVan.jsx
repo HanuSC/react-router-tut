@@ -55,7 +55,6 @@ const VanItem = ({van, edit}) => {
                     </div>
                 </div>       
         </Link>
-        {edit && <Link  to={`vans/${van.id}/edit`}><p className='hover:underline text-md font-bold px-4'>Edit</p></Link>}
     </section>
 
                 
