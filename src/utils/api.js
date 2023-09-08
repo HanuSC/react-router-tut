@@ -1,8 +1,9 @@
 
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, doc, getDoc, query, where } from 'firebase/firestore/lite'
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAyKwxZghF1VaR36D1Mox5yXb8erEWU9KQ",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "vanlife-hanus.firebaseapp.com",
   projectId: "vanlife-hanus",
   storageBucket: "vanlife-hanus.appspot.com",
